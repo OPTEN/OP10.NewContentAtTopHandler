@@ -57,7 +57,7 @@ Task("Build")
 		settings.SetConfiguration("Release"));
 
 	CreateDirectory(umb + Directory("bin"));
-	CopyFileToDirectory(File("../src/OP10.NewContentAtTopHandler/bin/OP10.NewContentAtTopHandler.dll"), umb + Directory("bin"));
+	CopyFileToDirectory(File("../src/OP10.NewContentAtTopHandler/bin/Release/OP10.NewContentAtTopHandler.dll"), umb + Directory("bin"));
 	CopyFileToDirectory(File("package.xml"), umb);
 	
 	Information("Patch package.xml: {0}", ReplaceTextInFiles(

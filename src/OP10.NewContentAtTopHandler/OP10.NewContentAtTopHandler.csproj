@@ -7,8 +7,8 @@
     <ProjectGuid>{AD3514DA-21EB-4301-B66A-79823030AD3D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OP10.ReverseInsertSubNodes</RootNamespace>
-    <AssemblyName>OP10.ReverseInsertSubNodes</AssemblyName>
+    <RootNamespace>OP10.NewContentAtTopHandler</RootNamespace>
+    <AssemblyName>OP10.NewContentAtTopHandler</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
