@@ -45,7 +45,7 @@ namespace OP10.NewContentAtTopHandler
 					if (newNodeToTopAliases.Contains(parentContentTypeAlias))
 					{
 						IEnumerable<IMedia> children = hasParent ? parent.Children() : sender.GetRootMedia();
-						IList<IMedia> siblings = children.ToList();
+						IList<IMedia> siblings = children.OrderBy(o => o.SortOrder).ToList();
 
 						// Remove the newly created media from the list and add it again at the first position
 						siblings.Remove(saved);
@@ -70,7 +70,7 @@ namespace OP10.NewContentAtTopHandler
 					if (newNodeToTopAliases.Contains(parentContentTypeAlias))
 					{
 						IEnumerable<IContent> children = hasParent ? parent.Children() : sender.GetRootContent();
-						IList<IContent> siblings = children.ToList();
+						IList<IContent> siblings = children.OrderBy(o => o.SortOrder).ToList();
 
 						// Remove the newly created content from the list and add it again at the first position
 						siblings.Remove(saved);

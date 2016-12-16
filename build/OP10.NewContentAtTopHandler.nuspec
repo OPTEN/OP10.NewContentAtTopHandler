@@ -14,18 +14,15 @@
 	  <![CDATA[OP10 New Content At Top Handler allows you to add new content and media to the top of the tree on creation]]>
 	</summary>
 	<description>
-	  <![CDATA[# OP10.NewContentAtTopHandler
+	  <![CDATA[
 OP10 New Content At Top Handler allows you to add new content and media to the top of the tree on creation
 
-## Installation
+Installation:
 Download the Umbraco Package here: [OP10 New Content At Top Handler](https://our.umbraco.org/projects/backoffice-extensions/op10-new-content-at-top-handler/)
 
-Installation via NuGet:
-```
-PM> Install-Package OP10.NewContentAtTopHandler
-```
+Installation via NuGet: Install-Package OP10.NewContentAtTopHandler
 
-## Configuration
+Configuration:
 
 Add a new AppSetting to the web.config file: <add key="OP10.NewContentAtTopHandler" value="" />
 
@@ -33,7 +30,7 @@ As value specify the ContentType aliases (semicolon separated) of the Content an
 
 Example: <add key="OP10.NewContentAtTopHandler" value="Homepage;Textpage;Folder" />
 
-### Special aliases
+Special aliases:
 
 - Content Root: #ContentRoot
 - Media Root: #MediaRoot
