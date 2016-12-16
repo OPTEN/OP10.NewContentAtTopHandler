@@ -30,7 +30,7 @@ Task("Version")
 		CreateDirectory(dest);
 	}
 
-	version = "1.1.3";
+	version = "0.1.0";
 
 	PatchAssemblyInfo("../OP10.NewContentAtTopHandler/Properties/AssemblyInfo.cs", version);
 	
@@ -57,7 +57,7 @@ Task("Build")
 		settings.SetConfiguration("Release"));
 
 	CreateDirectory(umb + Directory("bin"));
-	CopyFileToDirectory(File("../src/OP10.NewContentAtTopHandler/bin/OP10.MultipleMediaPicker.dll"), umb + Directory("bin"));
+	CopyFileToDirectory(File("../src/OP10.NewContentAtTopHandler/bin/OP10.NewContentAtTopHandler.dll"), umb + Directory("bin"));
 	CopyFileToDirectory(File("package.xml"), umb);
 	
 	Information("Patch package.xml: {0}", ReplaceTextInFiles(
