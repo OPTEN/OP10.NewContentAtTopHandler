@@ -30,7 +30,7 @@ Task("Version")
 		CreateDirectory(dest);
 	}
 
-	version = "0.1.0";
+	version = "0.2.0";
 
 	PatchAssemblyInfo("../OP10.NewContentAtTopHandler/Properties/AssemblyInfo.cs", version);
 	
