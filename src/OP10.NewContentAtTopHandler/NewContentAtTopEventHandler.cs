@@ -24,7 +24,7 @@ namespace OP10.NewContentAtTopHandler
 		{
 			string config = ConfigurationManager.AppSettings[appSettingsKey];
 
-			if(!string.IsNullOrWhiteSpace(config))
+			if (!string.IsNullOrWhiteSpace(config))
 			{
 				newNodeToTopAliases = config.Split(aliasDelimiter);
 				ContentService.Saved += ContentService_Saved;
@@ -45,13 +45,19 @@ namespace OP10.NewContentAtTopHandler
 					if (newNodeToTopAliases.Contains(parentContentTypeAlias))
 					{
 						IEnumerable<IMedia> children = hasParent ? parent.Children() : sender.GetRootMedia();
-						IList<IMedia> siblings = children.OrderBy(o => o.SortOrder).ToList();
 
-						// Remove the newly created media from the list and add it again at the first position
-						siblings.Remove(saved);
-						siblings.Insert(0, saved);
+						// sort only if there are more than 1 child.
+						// Umbraco crashes when there is only one child.
+						if (children != null && children.Any() && children.Count() > 1)
+						{
+							IList<IMedia> siblings = children.OrderBy(o => o.SortOrder).ToList();
 
-						sender.Sort(siblings);
+							// Remove the newly created media from the list and add it again at the first position
+							siblings.Remove(saved);
+							siblings.Insert(0, saved);
+
+							sender.Sort(siblings);
+						}
 					}
 				}
 			}
@@ -70,13 +76,19 @@ namespace OP10.NewContentAtTopHandler
 					if (newNodeToTopAliases.Contains(parentContentTypeAlias))
 					{
 						IEnumerable<IContent> children = hasParent ? parent.Children() : sender.GetRootContent();
-						IList<IContent> siblings = children.OrderBy(o => o.SortOrder).ToList();
 
-						// Remove the newly created content from the list and add it again at the first position
-						siblings.Remove(saved);
-						siblings.Insert(0, saved);
+						// sort only if there are more than 1 child.
+						// Umbraco crashes when there is only one child.
+						if (children != null && children.Any() && children.Count() > 1)
+						{
+							IList<IContent> siblings = children.OrderBy(o => o.SortOrder).ToList();
 
-						sender.Sort(siblings);
+							// Remove the newly created content from the list and add it again at the first position
+							siblings.Remove(saved);
+							siblings.Insert(0, saved);
+
+							sender.Sort(siblings);
+						}
 					}
 				}
 			}
